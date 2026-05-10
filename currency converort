@@ -1,0 +1,50 @@
+# Currency Converter using OOP
+
+class CurrencyConverter:
+
+    def __init__(self, usd_rate, eur_rate, gbp_rate):
+        self.usd_rate = usd_rate
+        self.eur_rate = eur_rate
+        self.gbp_rate = gbp_rate
+
+    def convert_from_inr(self, amount, currency):
+
+        if currency == "USD":
+            converted = amount / self.usd_rate
+
+        elif currency == "EUR":
+            converted = amount / self.eur_rate
+
+        elif currency == "GBP":
+            converted = amount / self.gbp_rate
+
+        else:
+            return "Invalid Currency"
+
+        return round(converted, 2)
+
+
+# Object Creation
+converter = CurrencyConverter(83, 90, 105)
+
+amount = float(input("Enter amount in INR: "))
+currency = input("Enter currency (USD/EUR/GBP): ").upper()
+
+result = converter.convert_from_inr(amount, currency)
+
+print("Converted Amount =", result, currency)
+
+
+
+  | TC ID | Use Case         | Input      | Expected Output  | Actual Output    | Status |
+| ----- | ---------------- | ---------- | ---------------- | ---------------- | ------ |
+| TC1   | INR to USD       | 8300, USD  | 100 USD          | 100 USD          | PASS   |
+| TC2   | INR to EUR       | 9000, EUR  | 100 EUR          | 100 EUR          | PASS   |
+| TC3   | INR to GBP       | 10500, GBP | 100 GBP          | 100 GBP          | PASS   |
+| TC4   | Invalid Currency | 5000, ABC  | Invalid Currency | Invalid Currency | PASS   |
+| TC5   | Zero Amount      | 0, USD     | 0 USD            | 0 USD            | PASS   |
+| TC6   | Negative Amount  | -1000, EUR | Negative Value   | Negative Value   | PASS   |
+| TC7   | INR to USD       | 16600, USD | 200 USD          | 200 USD          | PASS   |
+| TC8   | INR to EUR       | 4500, EUR  | 50 EUR           | 50 EUR           | PASS   |
+| TC9   | INR to GBP       | 21000, GBP | 200 GBP          | 200 GBP          | PASS   |
+| TC10  | INR to USD       | 830, USD   | 10 USD           | 10 USD           | PASS   |
