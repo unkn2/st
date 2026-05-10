@@ -1,0 +1,61 @@
+3. Python Program
+
+LOCK_PRICE = 45
+STOCK_PRICE = 30
+BARREL_PRICE = 25
+
+locks = int(input("Enter number of locks sold: "))
+stocks = int(input("Enter number of stocks sold: "))
+barrels = int(input("Enter number of barrels sold: "))
+
+if locks < 0 or stocks < 0 or barrels < 0:
+    print("Invalid input! Quantities cannot be negative.")
+else:
+    lock_sales = locks * LOCK_PRICE
+    stock_sales = stocks * STOCK_PRICE
+    barrel_sales = barrels * BARREL_PRICE
+
+    total_sales = lock_sales + stock_sales + barrel_sales
+
+    
+    if total_sales <= 1000:
+        commission = 0
+    elif total_sales <= 1800:
+        commission = (total_sales - 1000) * 0.10
+    else:
+        commission = 80 + (total_sales - 1800) * 0.15
+
+    print("Total Sales = ₹", total_sales)
+    print("Commission = ₹", commission)
+
+
+| Variable     | Purpose                    |
+| ------------ | -------------------------- |
+| locks        | Stores quantity of locks   |
+| stocks       | Stores quantity of stocks  |
+| barrels      | Stores quantity of barrels |
+| lock_sales   | Sales amount for locks     |
+| stock_sales  | Sales amount for stocks    |
+| barrel_sales | Sales amount for barrels   |
+| total_sales  | Total sales amount         |
+| commission   | Calculated commission      |
+
+
+## 5.1 Test Case Table
+
+| TC No | Locks | Stocks | Barrels | Total Sales | Expected Commission | Purpose                |
+| ----- | ----- | ------ | ------- | ----------- | ------------------- | ---------------------- |
+| TC1   | 10    | 10     | 10      | 1000        | 0                   | Boundary condition     |
+| TC2   | 20    | 10     | 5       | 1225        | 22.5                | Normal commission      |
+| TC3   | 30    | 20     | 15      | 2100        | 125                 | Higher commission      |
+| TC4   | 0     | 0      | 0       | 0           | 0                   | Minimum input          |
+| TC5   | -1    | 10     | 5       | Invalid     | Invalid             | Negative input         |
+| TC6   | 5     | -2     | 3       | Invalid     | Invalid             | Negative stock input   |
+| TC7   | 100   | 50     | 40      | 6700        | 815                 | Large values           |
+| TC8   | 15    | 5      | 2       | 875         | 0                   | Below commission range |
+| TC9   | 22    | 10     | 3       | 1265        | 26.5                | Mid-range values       |
+| TC10  | 40    | 30     | 20      | 3200        | 290                 | Above 1800 range       |
+
+
+
+
