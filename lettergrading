@@ -1,0 +1,44 @@
+# Letter Grading Program
+
+marks = int(input("Enter marks: "))
+
+if marks < 0 or marks > 100:
+    print("Invalid Marks")
+
+elif marks >= 90:
+    print("Grade = A")
+
+elif marks >= 75:
+    print("Grade = B")
+
+elif marks >= 60:
+    print("Grade = C")
+
+elif marks >= 40:
+    print("Grade = D")
+
+else:
+    print("Grade = F")
+
+| Path No | Condition                | Output        |
+| ------- | ------------------------ | ------------- |
+| P1      | marks < 0 or marks > 100 | Invalid Marks |
+| P2      | marks >= 90              | Grade A       |
+| P3      | 75 <= marks < 90         | Grade B       |
+| P4      | 60 <= marks < 75         | Grade C       |
+| P5      | 40 <= marks < 60         | Grade D       |
+| P6      | marks < 40               | Grade F       |
+
+
+| TC ID | Input Marks | Expected Output | Actual Output | Status |
+| ----- | ----------- | --------------- | ------------- | ------ |
+| TC1   | -5          | Invalid Marks   | Invalid Marks | PASS   |
+| TC2   | 105         | Invalid Marks   | Invalid Marks | PASS   |
+| TC3   | 95          | Grade A         | Grade A       | PASS   |
+| TC4   | 80          | Grade B         | Grade B       | PASS   |
+| TC5   | 65          | Grade C         | Grade C       | PASS   |
+| TC6   | 50          | Grade D         | Grade D       | PASS   |
+| TC7   | 30          | Grade F         | Grade F       | PASS   |
+| TC8   | 90          | Grade A         | Grade A       | PASS   |
+| TC9   | 75          | Grade B         | Grade B       | PASS   |
+| TC10  | 60          | Grade C         | Grade C       | PASS   |
